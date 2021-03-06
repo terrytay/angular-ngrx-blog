@@ -1,0 +1,6 @@
+Posts:
+<ul>
+  <li *ngFor="let post of posts$ | async">
+    <app-post [post]="post" (remove)="onRemove($event)"></app-post>
+  </li>
+</ul>
