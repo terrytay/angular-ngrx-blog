@@ -3,5 +3,5 @@ export interface Post {
   body: string;
   id: string;
   private: boolean,
-  timestamp?: any
+  timestamp: any
 }

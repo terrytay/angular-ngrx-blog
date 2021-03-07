@@ -3,7 +3,6 @@ import {Observable, of} from "rxjs";
 import {Post} from "../models/posts.model";
 import {Injectable} from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import {map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class PostsService {
