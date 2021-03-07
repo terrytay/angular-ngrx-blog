@@ -1,18 +1,26 @@
 import {createAction, props } from '@ngrx/store';
 import {Post} from "../../posts/models/posts.model";
+import { PostsActionTypes } from './posts.types';
 
 export const addPost = createAction(
-  `[Posts] Add Post`,
+  PostsActionTypes.AddPost,
   props<{ post: Post }>()
 )
 
 export const removePost = createAction(
-  `[Posts] Remove Post`,
+  PostsActionTypes.RemovePost,
   props<{ postId: string }>()
 )
 
-export const retrievedPosts = createAction(
-  '[Posts] Retrieve Posts Success',
+export const loadPostsSuccess = createAction(
+  PostsActionTypes.LoadPostsSuccess,
   props<{ posts: Post[] }>()
 );
 
+export const loadPostsFailure = createAction(
+  PostsActionTypes.LoadPostsFailure
+);
+
+export const loadPosts = createAction(
+  PostsActionTypes.LoadPosts
+)

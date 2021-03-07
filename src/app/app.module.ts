@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
 
 
 import { environment } from '../environments/environment';
 import { postsReducer } from './store/posts/posts.reducer';
+import { PostsEffects } from './store/posts/posts.effects';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -22,6 +24,7 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({posts: postsReducer}),
+    EffectsModule.forRoot([PostsEffects]),
     (!environment.production) ? StoreDevtoolsModule.instrument() : [],
     PostsModule,
   ],

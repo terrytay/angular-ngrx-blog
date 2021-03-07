@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "blog-c4d11": {
+      "hosting": {
+        "terry-blog": [
+          "blog-c4d11"
+        ]
+      }
+    }
+  }
+}
