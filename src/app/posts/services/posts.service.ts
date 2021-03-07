@@ -2,20 +2,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {Post} from "../models/posts.model";
 import {Injectable} from "@angular/core";
+import { AngularFirestore } from "@angular/fire/firestore";
+import {map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class PostsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private db: AngularFirestore) {}
 
   getPosts(): Observable<Post[]> {
-    return of(samplePosts)
+    return this.db.collection<Post>('posts').valueChanges();
   }
 };
-
-const samplePosts: Post[] = [
-  {
-    title: 'Hello World',
-    body: 'lorem ipsum',
-    id: '29126'
-  }
-];

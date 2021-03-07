@@ -7,6 +7,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 import { environment } from '../environments/environment';
@@ -26,6 +28,8 @@ import { AppComponent } from './app.component';
     StoreModule.forRoot({posts: postsReducer}),
     EffectsModule.forRoot([PostsEffects]),
     (!environment.production) ? StoreDevtoolsModule.instrument() : [],
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     PostsModule,
   ],
   providers: [],
