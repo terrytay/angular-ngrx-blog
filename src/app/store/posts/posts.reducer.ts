@@ -1,6 +1,6 @@
 import {createReducer, on } from "@ngrx/store";
+import { Post } from "src/app/posts/models/posts.model";
 import {addPost, removePost, retrievedPosts} from './posts.actions';
-import { Post } from "../models/posts.model";
 
 export const initialState: Post[] = [];
 

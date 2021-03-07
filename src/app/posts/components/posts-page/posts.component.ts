@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../core/models/posts.model";
+import {Post} from "../../models/posts.model";
 import {Observable} from "rxjs";
-import {PostsService} from "../core/services/posts.service";
-import {addPost, removePost, retrievedPosts} from "../core/state/posts.actions";
+import {PostsService} from "../../services/posts.service";
+import {addPost, removePost, retrievedPosts} from "../../../store/posts/posts.actions";
 import {select, Store} from "@ngrx/store";
-import {selectPosts} from "../core/state/posts.selector";
+import { selectPosts } from 'src/app/store/posts/posts.selector';
 
 @Component({
   selector: 'app-posts',

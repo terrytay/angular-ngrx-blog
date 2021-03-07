@@ -1,22 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import {CoreModule} from './core/core.module';
 import {SharedModule} from './shared/shared.module';
 import {PostsModule} from "./posts/posts.module";
 import { AppRoutingModule } from './app-routing.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
+
+
+import { environment } from '../environments/environment';
+import { postsReducer } from './store/posts/posts.reducer';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    CoreModule,
     SharedModule,
     BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({posts: postsReducer}),
+    (!environment.production) ? StoreDevtoolsModule.instrument() : [],
     PostsModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
